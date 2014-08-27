@@ -11,6 +11,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 
+gem 'bcrypt', '~> 3.1.7'
+
 group :development do
     gem 'letter_opener'
     gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
