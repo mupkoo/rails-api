@@ -5,7 +5,7 @@ module Api
             @login = LoginService.new(auth_params)
 
             if @login.valid? && @login.authenticate
-                render json: { success: true, user: @login.user }
+                render json: { success: true, user: UserSerializer.new(@login.user, root: false) }
             else
                 render json: { error: @login.errors.full_messages.join(',') }
             end

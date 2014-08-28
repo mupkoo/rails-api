@@ -12,6 +12,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 
 gem 'bcrypt', '~> 3.1.7'
+gem 'active_model_serializers'
 
 group :development do
     gem 'letter_opener'
