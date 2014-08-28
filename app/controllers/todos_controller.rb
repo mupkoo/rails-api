@@ -35,11 +35,11 @@ class TodosController < ApplicationController
     end
 
     def todo
-        @todo ||= Todo.find(params[:id])
+        @todo ||= current_user.todos.find(params[:id])
     end
 
     def todos
-        @todos ||= Todo.all
+        @todos ||= current_user.todos
     end
 
 end
