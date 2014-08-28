@@ -16,6 +16,9 @@
                 <li class="<%= 'active' if current_page?('/') %>">
                     <%= link_to 'Home', root_path %>
                 </li>
+                <li>
+                    <%= link_to 'Todos', todos_path %>
+                </li>
                 <% unless user_signed_in? %>
                     <li><%= link_to 'Register', new_registration_path %></li>
                 <% end %>
