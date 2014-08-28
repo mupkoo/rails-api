@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
         @login = LoginService.new(login_params)
 
         if @login.valid? && @login.authenticate
-            # Login
+            sign_in(@login.user)
 
             redirect_to root_url, notice: 'You have logged in successfully.'
         else
@@ -17,7 +17,8 @@ class SessionsController < ApplicationController
     end
 
     def destroy
-
+        sign_out
+        redirect_to root_url, notice: 'You have logged out successfully.'
     end
 
     protected

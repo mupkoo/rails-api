@@ -18,14 +18,14 @@ class LoginService
         result
     end
 
+    def user
+        @user ||= User.find_by(email: email)
+    end
+
     protected
 
     def check_password
         BCrypt::Password.new(user.password_digest) == password
-    end
-
-    def user
-        @user ||= User.find_by(email: email)
     end
 
 end
