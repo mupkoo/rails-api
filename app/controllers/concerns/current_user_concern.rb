@@ -8,6 +8,10 @@ module CurrentUserConcern
 
     protected
 
+    def authorize!
+        raise Unauthorized unless user_signed_in?
+    end
+
     def sign_in(user)
         session[:user_id] = user.id
         @current_user = user
