@@ -8,7 +8,8 @@ class RegistrationsController < ApplicationController
         @registration = RegistrationService.new(registration_params)
 
         if @registration.valid?
-            @registration.save
+            user = @registration.save
+            sign_in(user)
 
             redirect_to root_url, notice: 'You have registered successfully!'
         else
