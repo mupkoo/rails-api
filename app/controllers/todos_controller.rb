@@ -1,5 +1,6 @@
 class TodosController < ApplicationController
 
+    before_action :authorize!
     helper_method :todos
 
     def index
