@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     namespace :api do
         resources :auth, only: [ :create, :destroy ]
         resources :users, only: [ :show ]
+
+        resources :todos, except: [ :new, :edit ]
+        match 'todos(/*all)', to: 'todos#index', via: [ :options ]
     end
 
     root to: 'home#index'
