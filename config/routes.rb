@@ -9,7 +9,8 @@ Rails.application.routes.draw do
         resources :users, only: [ :show ]
 
         resources :todos, except: [ :new, :edit ]
-        match 'todos(/*all)', to: 'todos#index', via: [ :options ]
+
+        match '*all', to: 'base#cors_preflight_check', via: [ :options ]
     end
 
     root to: 'home#index'
