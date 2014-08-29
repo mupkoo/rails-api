@@ -1,6 +1,8 @@
 module Api
     class BaseController < ActionController::Base
 
+        include ApiAuthConcern
+
         after_action :cors_set_access_control_headers
 
         def cors_preflight_check

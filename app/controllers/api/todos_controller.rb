@@ -1,16 +1,19 @@
 module Api
     class TodosController < BaseController
 
+        before_action :authorize!
+
         def index
-            render json: Todo.all
+            render json: current_user.todos
         end
 
         def show
-            render json: Todo.find(params[:id])
+            render json: current_user.todos.find(params[:id])
         end
 
         def create
             todo = Todo.new(todo_params)
+            todo.user = current_user
 
             if todo.save
                 render json: todo
@@ -20,7 +23,7 @@ module Api
         end
 
         def update
-            todo = Todo.find(params[:id])
+            todo = current_user.todos.find(params[:id])
 
             if todo.update_attributes(todo_params)
                 render json: todo
@@ -30,7 +33,7 @@ module Api
         end
 
         def destroy
-            todo = Todo.find(params[:id])
+            todo = current_user.todos.find(params[:id])
             todo.destroy
 
             render json: { success: true }
