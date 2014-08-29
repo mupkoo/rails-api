@@ -1,7 +1,7 @@
 module Api
     class BaseController < ActionController::Base
 
-        before_action :set_headers
+        after_action :set_headers
 
         protected
 
