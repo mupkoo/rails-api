@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20140828142354) do
   create_table "tokens", force: true do |t|
     t.integer  "user_id"
     t.string   "token"
-    t.datetime "expiresAt"
+    t.datetime "expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
